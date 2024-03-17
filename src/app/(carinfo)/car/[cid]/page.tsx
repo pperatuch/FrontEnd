@@ -26,3 +26,7 @@ export default function CarDetailPage( {params} : {params: {cid:string}} ) {
         </main>
     )
 }
+
+export async function generateStaticParams() {
+    return [{cid:'001'}, {cid:'002'}, {cid:'003'}, {cid:'004'}] 
+}

@@ -20,7 +20,9 @@ export default function InteractiveCard ( { children, contentName } : { children
     }
 
     return (
-        <div className='w-1/5 h-[300px] rounded-lg shadow-lg' onClick={ ()=> onCarSelected() } onMouseOver={ (e)=> onCardMouseAction(e) } onMouseOut={ (e)=> onCardMouseAction(e)} >
+        <div className='w-full h-[300px] rounded-lg shadow-lg' 
+        onMouseOver={ (e)=> onCardMouseAction(e) } 
+        onMouseOut={ (e)=> onCardMouseAction(e)} >
             { children }
         </div>
     )

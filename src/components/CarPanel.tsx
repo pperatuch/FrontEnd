@@ -1,6 +1,7 @@
 'use client'
 import { useReducer } from "react"
 import ProductCard from "./ProductCard"
+import Link from "next/link"
 
 export default function CarPanel() {
 
@@ -33,9 +34,12 @@ export default function CarPanel() {
         <div>
             <div style={{margin:"20px", display:"flex", flexDirection:"row", flexWrap:"wrap", justifyContent:"space-around", alignContent:"space-around" }}>
                 {
-                    mockCarRepo.map((carItem)=> (<ProductCard carName={carItem.name} imgSrc={carItem.image}
+                    mockCarRepo.map((carItem)=> (
+                    <Link href={`/car/${carItem.cid}`} className="w-1/5">
+                    <ProductCard carName={carItem.name} imgSrc={carItem.image}
                     onCompare={ (car:string)=> dispatchCompare({type:'add', carName:car }) }
                     />
+                    </Link>
                     ))
                 }
             </div>
