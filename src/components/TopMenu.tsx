@@ -13,18 +13,20 @@ export default async function TopMenu() {
     return (
         <div className={style.menucontainer}>
             <Image src='/img/logo.png' className={style.logoimg} alt='logo' width={0} height={0} sizes='100vh' />
+            <TopMenuItem title='Select Car' pageRef='/car'/>
             <TopMenuItem title='Reservations' pageRef='/reservations'/>
             <TopMenuItem title='About' pageRef='/about'/>
-
+            <div className='flex flex-row absolute right-0 h-full'>
+            <TopMenuItem title='Cart' pageRef='/cart'/>
             {
                 session? <Link href="api/auth/signout"> 
-                <div className='flex item-center absolute right-0 h-full px-2 py-2.5 text-cyan-600 text-m '> Sign-Out of {session.user?.name} </div> 
+                <div className='flex item-center  h-full px-2 py-2.5 text-cyan-600 text-m '> Sign-Out of {session.user?.name} </div> 
                 </Link>
                 : <Link href="api/auth/signin"> 
-                <div className='flex item-center absolute right-0 h-full px-2 py-2.5 text-cyan-600 text-m '> Sign-In </div>
+                <div className='flex item-center  h-full px-2 py-2.5 text-cyan-600 text-m '> Sign-In </div>
                 </Link>
             }
-
+            </div>
         </div>
     )
 }
